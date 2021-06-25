@@ -7,6 +7,8 @@ from . import views
 urlpatterns = [
     # function based views
     path('', views.home_view, name='home'),
+    path('books/', views.book_list, name='book_list'),
+    path('upload/', views.book_upload, name='book_upload'),
     # class based views
     path('class/', views.HomeView.as_view(), name='class_home'),
 ]
