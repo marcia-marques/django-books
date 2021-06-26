@@ -1,0 +1,43 @@
+{% extends 'mybooks/base.html' %}
+
+{% block content %}
+	<br>
+	<h1>Book list</h1>
+
+	<table class="table mb-0">
+	<thead>
+      <tr>
+      	<th>Cover</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publishing date</th>
+        <th>Download</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td><img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:100px;"></td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.date }}</td>
+          <td>
+            <a href="{{ book.epub.url }}" class="btn btn-primary btn-sm" target="_blank">
+              EPUB
+            </a>
+          </td>
+          <td>
+            <form method="post" action="{% url 'class_book_delete' book.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">
+              	<i class="bi bi-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+   
+{% endblock %}
