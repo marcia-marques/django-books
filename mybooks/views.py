@@ -30,6 +30,13 @@ def book_upload(request):
     return render(request, 'mybooks/book_upload.html', {'form': form})
 
 
+def book_delete(request, pk):
+    if request.method == 'POST':
+        book = Book.objects.get(pk=pk)
+        book.delete()
+    return redirect('book_list')
+
+
 # class based views
 
 

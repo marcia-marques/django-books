@@ -12,6 +12,7 @@
         <th>Author</th>
         <th>Publishing date</th>
         <th>Download</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,14 @@
             <a href="{{ book.epub.url }}" class="btn btn-primary btn-sm" target="_blank">
               EPUB
             </a>
+          </td>
+          <td>
+            <form method="post" action="{% url 'book_delete' book.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">
+              	<i class="bi bi-trash"></i>
+              </button>
+            </form>
           </td>
         </tr>
       {% endfor %}

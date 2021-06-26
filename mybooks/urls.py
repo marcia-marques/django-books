@@ -8,11 +8,12 @@ urlpatterns = [
     # function based views
     path('', views.home_view, name='home'),
     path('books/', views.book_list, name='book_list'),
-    path('upload/', views.book_upload, name='book_upload'),
+    path('books/upload/', views.book_upload, name='book_upload'),
+    path('books/<int:pk>/', views.book_delete, name='book_delete'),
     # class based views
     path('class/', views.HomeView.as_view(), name='class_home'),
     path('class/books/', views.BookListView.as_view(), name='class_book_list'),
-    path('class/upload/', views.BookUploadView.as_view(), name='class_upload_list'),
+    path('class/books/upload/', views.BookUploadView.as_view(), name='class_book_upload'),
 ]
 
 if settings.DEBUG:
