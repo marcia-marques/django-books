@@ -70,9 +70,11 @@ class BookUploadView(CreateView):
     template_name = 'mybooks/book_upload.html'
 
 
-# class BookUpdateView(UpdateView):
-#     model = Book
-#     success_url = reverse_lazy('class_book_list')
+class BookUpdateView(UpdateView):
+    model = Book
+    form_class = BookForm
+    template_name = 'mybooks/book_update.html'
+    success_url = reverse_lazy('class_book_list')
 
 
 class BookDeleteView(DeleteView):
