@@ -9,7 +9,8 @@ urlpatterns = [
     path('', views.home_view, name='home'),
     path('books/', views.book_list, name='book_list'),
     path('books/upload/', views.book_upload, name='book_upload'),
-    path('books/<int:pk>/', views.book_delete, name='book_delete'),
+    path('books/update/<int:pk>/', views.book_update, name='book_update'),
+    path('books/delete/<int:pk>/', views.book_delete, name='book_delete'),
     # class based views
     path('class/', views.HomeView.as_view(), name='class_home'),
     path('class/books/', views.BookListView.as_view(), name='class_book_list'),

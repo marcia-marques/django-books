@@ -1,0 +1,19 @@
+{% extends 'mybooks/base.html' %}
+
+{% block content %}
+	<br>
+	<h1>Book upload</h1>
+
+	<div class="col-lg-6">
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<!-- {{ form.as_p }} -->
+		{{ form.title.label }} {{ form.title }} <br>
+		{{ form.author.label }} {{ form.author }}  <br>
+		{{ form.date.label }} {{ form.date }}  <br>
+
+		<button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    </div>
+   
+{% endblock %}

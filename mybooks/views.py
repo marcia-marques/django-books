@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, ListView, CreateView, DeleteView
+from django.views.generic import TemplateView, ListView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import Book
@@ -30,6 +30,19 @@ def book_upload(request):
     return render(request, 'mybooks/book_upload.html', {'form': form})
 
 
+def book_update(request, pk):
+    if request.method == 'POST':
+        book = Book.objects.get(pk=pk)
+        form = BookForm(request.POST, request.FILES, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')
+    else:
+        book = Book.objects.get(pk=pk)
+        form = BookForm(instance=book)
+    return render(request, 'mybooks/book_update.html', {'form': form})
+
+
 def book_delete(request, pk):
     if request.method == 'POST':
         book = Book.objects.get(pk=pk)
@@ -55,6 +68,11 @@ class BookUploadView(CreateView):
     form_class = BookForm
     success_url = reverse_lazy('class_book_list')
     template_name = 'mybooks/book_upload.html'
+
+
+# class BookUpdateView(UpdateView):
+#     model = Book
+#     success_url = reverse_lazy('class_book_list')
 
 
 class BookDeleteView(DeleteView):
