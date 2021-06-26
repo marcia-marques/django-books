@@ -11,6 +11,8 @@ urlpatterns = [
     path('upload/', views.book_upload, name='book_upload'),
     # class based views
     path('class/', views.HomeView.as_view(), name='class_home'),
+    path('class/books/', views.BookListView.as_view(), name='class_book_list'),
+    path('class/upload/', views.BookUploadView.as_view(), name='class_upload_list'),
 ]
 
 if settings.DEBUG:
