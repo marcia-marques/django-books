@@ -12,14 +12,14 @@
         <th>Author</th>
         <th>Publishing date</th>
         <th>Download</th>
-        <th>Update</th>
+        <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       {% for book in books %}
         <tr>
-          <td><img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:100px;"></td>
+          <td><img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:90px;"></td>
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>
           <td>{{ book.date }}</td>
