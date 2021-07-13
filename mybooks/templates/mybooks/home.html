@@ -2,6 +2,18 @@
 
 {% block content %}
 	<br>
-	<h1>Mylibrary</h1>
+	<h1 class="display-6">Mylibrary</h1>
+
+	<div class="col-lg-6">
+
+		<p>Welcome to Mylibrary, here you can upload, consult, edit and delete books.</p>
+
+		<img src="https://source.unsplash.com/9BoqXzEeQqM" class="img-fluid mb-3" alt="Responsive image">
+
+		<a href="{% url 'book_list' %}" class="btn btn-primary btn-md"><i class="bi bi-book"></i> Books</a>
+
+		<a href="{% url 'book_upload' %}" class="btn btn-primary btn-md"><i class="bi bi-upload"></i> Upload</a>
+
+    </div>
    
 {% endblock %}

@@ -2,13 +2,14 @@
 
 {% block content %}
 	<br>
-	<h1>Book upload</h1>
+	<h1 class="display-6">Book upload</h1>
 
 	<div class="col-lg-6">
 	<form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
 		<button type="submit" class="btn btn-primary">Upload</button>
+		<a href="{% url 'home' %}" class="btn btn-danger btn-md">Cancel</a>
     </form>
     </div>
    
